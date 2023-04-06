@@ -1,0 +1,48 @@
+### views.py
+
+    allpost = Post.objects.all()
+
+#meta tags
+
+  {% if post %}
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digineptronics Blog - {{ post.title }}</title>
+
+  <meta name="description" content="{{ post.content|truncatechars:150 }}" />
+  <meta name="keywords" content="{{ post.title }}" />
+  <meta property="og:title" content="{{ post.title }}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ request.build_absolute_uri }}">
+  <meta property="og:description" content="{{ post.content|truncatechars:150 }}" />
+  <meta property="og:keywords" content="{{ post.title }}" />
+  <meta property="og:image" content="{{ post.img.url }}">
+  <meta property="og:image:secure_url" content="{{ post.img.url }}" />
+  <link rel="image_src" href="{{ post.img.url }}" alt="Digineptronics Blog - {{ post.title }}" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@Digineptronics - R & D Based Company" />
+  <meta name="twitter:creator" content="@Digineptronics Blog" />
+  <meta property="og:title" content="{{ post.title }}">
+  <meta property="og:description" content="{{ post.content|striptags |truncatechars:200 }}">
+
+  <meta name="author" content="Digineptronics Blog"/>
+  <meta name="rating" CONTENT="General"/>
+  <meta name="revisit-after" CONTENT="2 days"/>
+  <meta name="robots" content=" ALL, index, follow"/>
+  <meta name="distribution" content="Global" />
+  <meta name="rating" content="Safe For All" />
+  <meta name="language" content="English" />
+  <meta http-equiv="window-target" content="_top"/>
+  <meta http-equiv="pics-label" content="for all ages"/>
+  <meta name="rating" content="general"/>
+  <meta content="All, FOLLOW" name="GOOGLEBOTS"/>
+  <meta content="All, FOLLOW" name="YAHOOBOTS"/>
+  <meta content="All, FOLLOW" name="MSNBOTS"/>
+  <meta content="All, FOLLOW" name="BINGBOTS"/>
+  <meta content="all" name="Googlebot-Image"/>
+  <meta content="all" name="Slurp"/>
+  <meta content="all" name="Scooter"/>
+  <meta content="ALL" name="WEBCRAWLERS"/>
+{% endif %}
